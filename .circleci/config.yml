@@ -2,9 +2,12 @@ version: 2.1
 
 orbs:
   docker: circleci/docker@1.7.0
+  windows: circleci/windows@2.4.1
 
 workflows:
   main:
     jobs:
       - docker/publish:
+          # so that we have a Docker engine on Windows
+          executor: windows/default
           image: kelvintaywl/sample-windows
